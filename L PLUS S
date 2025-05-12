@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    int a,b,c,d,e,f;
+    printf("enter a,b,c,d values:");
+    scanf("%d%d%d%d",&a,&b,&c,&d);
+    e=(a>=b && a>=c && a>=d)?a: (b>c &&b>d)?b: (c>d)?c:d;
+    f=(a<=b && a<=c && a<=d)?a: (b<c &&b<d)?b: (c<d)?c:d;
+    printf("%d",e+f);
+}
+    
