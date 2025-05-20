@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<string.h>
+float percent(int marks[],int n)
+{
+    float sum=0;
+    for(int i=0;i<n;i++){
+        sum+=marks[i];
+    }
+    return (sum/500)*100;
+}
+float swap(float *a,float *b){
+    float temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+float sort(float score[],int n)
+{
+    int temp;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(score[j]<score[j+1]){
+                swap(&score[j],&score[j+1]);
+             }
+        }     
+    }
+}
+void main()
+{
+    char names[5][5]={"megha", "teja", "yashu", "surya", "lucky"};
+    int i,j;
+    float score[5];
+    int marks[5][5]={{78,89,98,97,56},{69,98,97,96,56},{65,99,89,86,93},{47,87,98,97,76},{98,67,79,87,73}};
+    for(i=0;i<5;i++){
+        score[i]=percent(marks[i],5);
+    }
+    float old[5];
+    for(i=0;i<5;i++){
+        old[i]=score[i];
+    }
+    for(i=0;i<5;i++){
+        printf("\n%f",score[i]);
+    }
+    printf("\n\n");
+    sort(score,5);
+    for(i=0;i<5;i++)
+    {
+        printf("\n%f",score[i]);
+    }
+    printf("\n\n");
+    int r;
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            if(score[i]==old[j]){
+                r=j;
+                break;
+            }    
+        }
+        for(j=0;j<5;j++){
+            
+            printf("%c",names[r][j]);
+        }
+        printf(" scored %f\n",score[i]);
+        printf("\n%d\n",r);
+    }
+}
